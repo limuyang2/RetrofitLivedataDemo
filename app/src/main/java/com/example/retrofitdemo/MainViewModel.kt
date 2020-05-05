@@ -37,11 +37,6 @@ class MainViewModel : ViewModel() {
         }
 
         // 监听数据变化
-        _newsLiveData.addSource(newsLiveData) {
-            if (it.requestStatus == RequestStatus.COMPLETE) {
-                _newsLiveData.removeSource(newsLiveData)
-            }
-            _newsLiveData.value = it
-        }
+        _newsLiveData.addSource(newsLiveData)
     }
 }
