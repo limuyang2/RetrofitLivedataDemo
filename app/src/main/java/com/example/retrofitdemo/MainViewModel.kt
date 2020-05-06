@@ -19,7 +19,7 @@ class MainViewModel : ViewModel() {
         get() = _newsLiveData
 
     fun getNews() {
-        val newsLiveData = viewModelScope.simpleRequestLiveData<NewsBean> {
+        val liveData = viewModelScope.simpleRequestLiveData<NewsBean> {
             api { newsApi.getNews() }
 
             /**
@@ -37,6 +37,6 @@ class MainViewModel : ViewModel() {
         }
 
         // 监听数据变化
-        _newsLiveData.addSource(newsLiveData)
+        _newsLiveData.addSource(liveData)
     }
 }
